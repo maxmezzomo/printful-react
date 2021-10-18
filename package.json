@@ -7,6 +7,7 @@
   "module": "build/module/index.js",
   "repository": "https://github.com/maxmezzomo/printful-react",
   "license": "MIT",
+  "type": "module",
   "keywords": [],
   "scripts": {
     "build": "run-p build:*",
@@ -42,11 +43,15 @@
     "node": ">=10"
   },
   "dependencies": {
-    "@bitauth/libauth": "^1.17.1"
+    "@bitauth/libauth": "^1.17.1",
+    "printful-js": "^1.0.3"
   },
   "devDependencies": {
     "@ava/typescript": "^1.1.1",
     "@istanbuljs/nyc-config-typescript": "^1.0.1",
+    "@testing-library/react-hooks": "^7.0.2",
+    "@types/node": "^16.11.1",
+    "@types/react": "^17.0.30",
     "@typescript-eslint/eslint-plugin": "^4.0.1",
     "@typescript-eslint/parser": "^4.0.1",
     "ava": "^3.12.1",
@@ -63,10 +68,15 @@
     "nyc": "^15.1.0",
     "open-cli": "^6.0.1",
     "prettier": "^2.1.1",
+    "react": "^17.0.2",
+    "react-test-renderer": "^17.0.2",
     "standard-version": "^9.0.0",
     "ts-node": "^9.0.0",
     "typedoc": "^0.19.0",
     "typescript": "^4.0.2"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2"
   },
   "files": [
     "build/main",
@@ -78,16 +88,16 @@
     "README.md"
   ],
   "ava": {
-    "failFast": true,
-    "timeout": "60s",
-    "typescript": {
-      "rewritePaths": {
-        "src/": "build/main/"
-      }
+    "extensions": {
+      "ts": "module"
     },
-    "files": [
-      "!build/module/**"
-    ]
+    "nodeArguments": [
+      "--loader=ts-node/esm",
+      "--experimental-specifier-resolution=node"
+    ],
+    "nonSemVerExperiments": {
+      "configurableModuleFormat": true
+    }
   },
   "config": {
     "commitizen": {
