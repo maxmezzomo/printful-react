@@ -1,5 +1,6 @@
 import printful, { Error } from 'printful-js';
 import { useContext, useEffect, useState } from 'react';
+
 import { APIContext } from './context';
 
 export type API = ReturnType<typeof printful>;
