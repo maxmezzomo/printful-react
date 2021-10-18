@@ -1,1 +1,1 @@
-export { useApi } from './lib/hooks';
+export { useApi as default } from './lib/hooks';
