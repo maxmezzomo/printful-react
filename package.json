@@ -43,7 +43,6 @@
     "node": ">=10"
   },
   "dependencies": {
-    "@bitauth/libauth": "^1.17.1",
     "printful-js": "^1.0.3"
   },
   "devDependencies": {
